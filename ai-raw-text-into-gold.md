@@ -299,7 +299,8 @@ The assistant processed each JSON object, converting the `Name` to `lowercase_sn
 > ```
 > <br>
 >
-> **_After: Final Formatted String 🏁_**
-> ```
-> [(id - Alpha-Num | max lenfgt 2), (name - Alpha-Num | max lenfgt 20), (type - Alpha-Num | max lenfgt 2), (uptime - Alpha-Num | max lenfgt 12), (txn_in_flight - Alpha-Num | max lenfgt 10), (txn_good - Alpha-Num | max lenfgt 10), (txn_time_out - Alpha-Num | max lenfgt 10), (txn_bad - Alpha-Num | max lenfgt 10), (t_p_s - Alpha-Num | max lenfgt 6)]
-> ```
+
+#### After: Final Formatted String 🏁
+```
+[(id - Alpha-Num | max lenfgt 2), (name - Alpha-Num | max lenfgt 20), (type - Alpha-Num | max lenfgt 2), (uptime - Alpha-Num | max lenfgt 12), (txn_in_flight - Alpha-Num | max lenfgt 10), (txn_good - Alpha-Num | max lenfgt 10), (txn_time_out - Alpha-Num | max lenfgt 10), (txn_bad - Alpha-Num | max lenfgt 10), (t_p_s - Alpha-Num | max lenfgt 6)]
+```
