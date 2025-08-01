@@ -177,3 +177,129 @@ After: Complete JSON with `Description` 📄_**
 ---
 <br>
 
+### 4. Modifying the JSON Data ✏️
+
+Several manipulations were then performed on the JSON data based on the user's specific requests.
+
+#### The Requests 💬
+> 1. add rule field to each item and remove the description field
+> 2. remove the rule field now
+
+#### The Transformation ✨
+First, the **`Description`** field was renamed to **`rule`**. Immediately after, the new **`rule`** field was removed entirely.
+
+> **_Stage 1: JSON with `rule` field ➡️_**
+> ```json
+> [
+>   {
+>     "Name": "Id",
+>     "Offset": 169,
+>     "Data Type": "Alpha-Num",
+>     "Length": 2,
+>     "rule": "X1PPGROUP.Pgroup_id"
+>   },
+>   {
+>     "Name": "Name",
+>     "Offset": 171,
+>     "Data Type": "Alpha-Num",
+>     "Length": 20,
+>     "rule": "X1PPGROUP.group_name"
+>   },
+>   ...
+> ]
+> ```
+> <br>
+>
+> **_Stage 2: Final Cleaned JSON ✅_**
+> ```json
+> [
+>   {
+>     "Name": "Id",
+>     "Offset": 169,
+>     "Data Type": "Alpha-Num",
+>     "Length": 2
+>   },
+>   {
+>     "Name": "Name",
+>     "Offset": 171,
+>     "Data Type": "Alpha-Num",
+>     "Length": 20
+>   },
+>   {
+>     "Name": "Type",
+>     "Offset": 191,
+>     "Data Type": "Alpha-Num",
+>     "Length": 2
+>   },
+>   {
+>     "Name": "Uptime",
+>     "Offset": 193,
+>     "Data Type": "Alpha-Num",
+>     "Length": 12
+>   },
+>   {
+>     "Name": "TxnInFlight",
+>     "Offset": 205,
+>     "Data Type": "Alpha-Num",
+>     "Length": 10
+>   },
+>   {
+>     "Name": "TxnGood",
+>     "Offset": 215,
+>     "Data Type": "Alpha-Num",
+>     "Length": 10
+>   },
+>   {
+>     "Name": "TxnTimeOut",
+>     "Offset": 225,
+>     "Data Type": "Alpha-Num",
+>     "Length": 10
+>   },
+>   {
+>     "Name": "TxnBad",
+>     "Offset": 235,
+>     "Data Type": "Alpha-Num",
+>     "Length": 10
+>   },
+>   {
+>     "Name": "TPS",
+>     "Offset": 245,
+>     "Data Type": "Alpha-Num",
+>     "Length": 6
+>   }
+> ]
+> ```
+
+---
+<br>
+
+### 5. Final Formatting into a Custom String ✨
+
+Finally, the cleaned JSON data was parsed into a single, custom-formatted string.
+
+#### The Request 💬
+> give me a string that parse the items in the given format:
+>
+> `[({Name "in lowercase and snakecase"} - {Data Type} | max lenfgt {Length}), ...]`
+
+#### The Transformation ✨
+The assistant processed each JSON object, converting the `Name` to `lowercase_snake_case` and arranging the fields into the requested pattern to produce one final string.
+
+> **_Before: Final Cleaned JSON 📄_**
+> ```json
+> [
+>   {
+>     "Name": "Id",
+>     "Offset": 169,
+>     "Data Type": "Alpha-Num",
+>     "Length": 2
+>   },
+>    ...
+> ]
+> ```
+> <br>
+>
+> **_After: Final Formatted String 🏁_**
+> ```
+> [(id - Alpha-Num | max lenfgt 2), (name - Alpha-Num | max lenfgt 20), (type - Alpha-Num | max lenfgt 2), (uptime - Alpha-Num | max lenfgt 12), (txn_in_flight - Alpha-Num | max lenfgt 10), (txn_good - Alpha-Num | max lenfgt 10), (txn_time_out - Alpha-Num | max lenfgt 10), (txn_bad - Alpha-Num | max lenfgt 10), (t_p_s - Alpha-Num | max lenfgt 6)]
+> ```
