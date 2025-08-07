@@ -278,9 +278,11 @@ First, the **`Description`** field was renamed to **`rule`**. Immediately after,
 Finally, the cleaned JSON data was parsed into a single, custom-formatted string.
 
 #### The Request 💬
-> give me a string that parses the items in the given format:
->
-> `[({Name "in lowercase and snakecase"} - {Data Type} | max length {Length}), ...]`
+```shell
+#Give me a string that parses the items in the given format:
+
+[({Name "in lowercase and snakecase; for instance (NewPassword -> new_password)"} - {Data Type} | max length {Length})]
+```
 
 #### The Transformation ✨
 The assistant processed each JSON object, converting the `Name` to `lowercase_snake_case` and arranging the fields into the requested pattern to produce one final string.
